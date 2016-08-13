@@ -31,7 +31,7 @@ class DataTrie(character: Option[Char]) {
    * But if the current char has not already been inserted then this function creates a new node for that char and inserts it in the TreeMap and then calls recursively to
    * itself to insert the remain chars as children of this last inserted node.
    * @param data a copy of original data, used to set `mayBeWord` for leaf nodes
-   * @param suffix suffix of the word to be inserted
+   * @param suffix suffix of the word to be inserted, same as the data being searched at the beginning
    */
   private def add(data: String, suffix: String): DataTrie = {
     suffix.toList match {
@@ -49,7 +49,7 @@ class DataTrie(character: Option[Char]) {
     }
   }
 
-  //Find all the node who has the input data as prefix
+  //Find the root node whose prefix tree (including the node itself) is the data provided in arguments.
   private def findNode(data: String): Option[DataTrie] = data.toLowerCase.replaceAll(" ", "").toList match {
     case Nil => Some(this)
     case head::tail => this.children.get(head).flatMap(_.findNode(tail.mkString))
