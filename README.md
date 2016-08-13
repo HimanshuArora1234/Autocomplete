@@ -38,7 +38,9 @@ PS. `sbt run` will automatically find the `Runner.scala` object which is the Sca
 1. What would you change if the list of keywords was large (several millions)?
 
     ```
-    When it comes to stroing a large amount of data, the data structure that comes in handy is HastTable which stores data into an array of buckets (linked-list). But in this case we are supposed to preform autocomplete (prefix search) with sorted results. Hence I will stick with the implemenation of Trie done using TreeMap.
+    When it comes to stroing a large amount of data, the data structure that comes in handy is HastTable which stores data into an array of buckets (linked-list).
+    
+    But in this case we are supposed to preform autocomplete (prefix search) with sorted results. Hence I will stick with the implemenation of Trie done using TreeMap.
     ```
 
 2. What would you change if the requirements were to match any portion of the
@@ -46,6 +48,8 @@ keywords ?
     
     ```
     To match any portion, we will need to use a pattern matching algorithm. As for exemple Knuth–Morris–Pratt algorithm which searches for occurrences of a "word" within a "text string".
+    
+    But given the problem, we are not searching the word in a single string but a large number of strings. In that case instead of constructing a prefix tree data structure we will need a Suffix tree data structure to perform a full text search.
     ```
 
 
