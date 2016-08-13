@@ -33,7 +33,7 @@ To run this application:
           
 PS. `sbt run` will automatically find the `Runner.scala` object which is the Scala App object to kick start this program.
 
-##Answers to the optional questions
+##Answers of the optional questions
 
 1. What would you change if the list of keywords was large (several millions)?
 
@@ -49,7 +49,7 @@ keywords ?
     ```
     To match any portion, we will need to use a pattern matching algorithm. As for exemple Knuth–Morris–Pratt algorithm which searches for occurrences of a "word" within a "text string".
     
-    But given the problem, we are not searching the word in a single string but a large number of strings. In that case instead of constructing a prefix tree data structure we will need a Suffix tree data structure to perform a full text search.
+    But given the problem, we are not dealing with a single string but a large number of strings. In that case instead of constructing a prefix tree data structure we will need a Suffix tree data structure to perform a full text search.
     ```
 
 
