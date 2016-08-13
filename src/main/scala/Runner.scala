@@ -22,10 +22,10 @@ object Runner extends App {
     if(input != null) {
       val t0 = System.nanoTime()
       //Firing the search algo
-      val res = dateTrie.search(input)
+      val res = dateTrie.search(input, 4)
       val t1 = System.nanoTime()
       println("Found matches are as following : ")
-      res.take(Math.min(4, res.length)).foreach(println)
+      res.foreach(println)
       println("Total execution time = " + (t1 - t0) / 1000000000.0 + " Sec")
     }
   }

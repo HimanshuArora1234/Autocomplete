@@ -60,9 +60,15 @@ class DataTrie(character: Option[Char]) {
     this.mayBeWord.toList ++ this.children.values.flatMap(_.findAllWords)
   }
 
-  //Prefix search function, returns list of matched words
-  def search(text: String): List[String] = {
-    findNode(text).toList.flatMap(_.findAllWords)
+  /**
+   * Prefix search function, returns list of matched words.
+   * @param text Text to search
+   * @param limit Number of results to be found
+   * @return List of found matches
+   */
+  def search(text: String, limit: Int): List[String] = {
+    val results = findNode(text).toList.flatMap(_.findAllWords)
+    results.take(Math.min(limit, results.length))
   }
 
 }
