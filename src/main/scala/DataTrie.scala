@@ -3,7 +3,6 @@ import scala.collection.immutable.TreeMap
 /**
  * A prefix tree (trie) data structure used to store the string data to perform efficient prefix search.
  * It can be used to provide auto-complete solutions backed by a fast data search.
- * For more details refer https://en.wikipedia.org/wiki/Trie
  * @param character key of the nodes, None for root node
  * Created by arorah on 12/08/2016.
  */
