@@ -49,7 +49,7 @@ keywords ?
     ```
     To match any portion, we will need to use a pattern matching algorithm. As for exemple Knuth–Morris–Pratt algorithm which searches for occurrences of a "word" within a "text string".
     
-    But given the problem, we are not dealing with a single string but a large number of strings. In that case instead of constructing a prefix tree data structure we will need a Suffix tree data structure to perform a full text search.
+    But given the problem, we are not dealing with a single string but a large number of strings. In that case instead of constructing a prefix tree data structure we will need a Suffix tree data structure to match any portion of the keywords.
     ```
 
 
