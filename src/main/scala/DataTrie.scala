@@ -70,6 +70,43 @@ class DataTrie(character: Option[Char]) {
     val results = findNode(text).toList.flatMap(_.findAllWords)
     results.take(Math.min(limit, results.length))
   }
+  //Complete path of a word (all the nodes from root to leaf used for word construction in the trie)
+  private def getPath(word: String):  List[DataTrie] = {
+    word.toLowerCase.replaceAll(" ", "").toList match {
+      case Nil => List.empty[DataTrie]
+      case head::tail => {
+        val nodeList = this.children.get(head).toList
+        nodeList ++ nodeList.flatMap(_.getPath(tail.mkString))
+      }
+    }
+  }
+
+  /**
+   * Delete a word from trie.
+   * It deletes the leaf node containing the word and all its parent and grand parent nodes who neither possess a word nor more than one child.
+   * @param word to be deleted
+   */
+  def remove(word: String) = {
+    val path = this.getPath(word)
+    path.foreach(p => println(p.toString))
+    var index = path.length - 1
+    path(index).mayBeWord = None
+    var stop = false
+    while (index > 0 && !stop) {
+      val current = path(index)
+      if (current.mayBeWord.isDefined) {
+        stop = true
+      } else {
+        val parent = path(index - 1)
+        if (current.children.isEmpty && parent.children.iterator.length == 1) {
+          parent.children = parent.children - (word.charAt(index).toLower)
+        }
+        index -= 1
+      }
+    }
+  }
+
+  override def toString = this.character.getOrElse("").toString
 
 }
 
