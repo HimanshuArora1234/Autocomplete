@@ -3,8 +3,6 @@ A scala project to implement fast prefix search to provide autocomplete solution
 
 ##Problem definition 
 
-![Autocomplete problem](ex004-autocomplete.pdf)
-
 ##Implementation details
 
 This problem is implemented in Scala by using the **Prefix tree/trie** data structure.
